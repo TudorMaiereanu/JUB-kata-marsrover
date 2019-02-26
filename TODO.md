@@ -1,0 +1,3 @@
+- separate file for planet tests
+- tests within rover test file for the planet with obstacles
+- instructions on how to set env
