@@ -36,6 +36,14 @@ export class Rover {
         this.direction = direction;
     }
 
+    getCoordinates() {
+        return [this.x, this.y];
+    }
+
+    getDirection() {
+        return this.direction;
+    }
+
     limit() {
         if (this.x < 0) {
             console.log("x out of boundaries");
