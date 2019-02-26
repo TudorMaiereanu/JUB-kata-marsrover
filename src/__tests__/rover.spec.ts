@@ -1,9 +1,13 @@
 import { Rover } from "../rover";
 
-describe("Rover => ", function () {
+describe("Rover", function () {
 
     describe("Constructor", function () {
         let rover = new Rover(0, 0, "N");
+
+        it("Should create the rover instance", function() {
+            expect(rover).toBeDefined();
+        });
 
         it("Should create a rover with the given initial position", function () {
             expect(rover.getCoordinates()).toEqual([0, 0]);
@@ -13,4 +17,5 @@ describe("Rover => ", function () {
             expect(rover.getDirection()).toEqual("N");
         });
     });
+
 });
