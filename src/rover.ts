@@ -1,3 +1,5 @@
+import { Planet } from "./planet";
+
 export class Rover {
     stateMachine = {
         "R": {
@@ -29,11 +31,13 @@ export class Rover {
     x: number;
     y: number;
     direction: string;
+    p: Planet;
 
-    constructor(x: number, y: number, direction: string) {
+    constructor(x: number, y: number, direction: string, s: number, obs: [number, number] []) {
         this.x = x;
         this.y = y;
         this.direction = direction;
+        this.p = new Planet(s, obs);
     }
 
     getCoordinates() {
@@ -46,12 +50,10 @@ export class Rover {
 
     limit() {
         if (this.x < 0) {
-            console.log("x out of boundaries");
-            this.x = 0;
+            throw Error("x out of boundaries");
         }
         if (this.y < 0) {
-            console.log("y out of boundaries");
-            this.y = 0;
+            throw Error("y out of boundaries");
         }
     }
 
@@ -73,5 +75,5 @@ export class Rover {
     }
 }
 
-let rover = new Rover(0, 0, "N");
-rover.move("FFFFBBBBLRFFRRLB");
+// let rover = new Rover(0, 0, "N");
+// rover.move("FFFFBBBBLRFFRRLB");
