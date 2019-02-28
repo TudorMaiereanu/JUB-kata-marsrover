@@ -48,11 +48,19 @@ export class Rover {
         return this.direction;
     }
 
-    limit() {
+    checkBoundaries() {
         if (this.x < 0) {
+            this.x = 0;
+            throw Error("x out of boundaries");
+        } else if (this.x > this.p.getSize()) {
+            this.x = this.p.getSize();
             throw Error("x out of boundaries");
         }
         if (this.y < 0) {
+            this.y = 0;
+            throw Error("y out of boundaries");
+        } else if (this.y > this.p.getSize()) {
+            this.y = this.p.getSize();
             throw Error("y out of boundaries");
         }
     }
@@ -60,16 +68,15 @@ export class Rover {
     move(instructions: string) {
         const listInstructions = instructions.split("");
         listInstructions.forEach(movement => {
-            console.log("Current position", this.x, this.y, "Direction", this.direction, "-> Move", movement);
+            // console.log("Current position", this.x, this.y, "Direction", this.direction, "-> Move", movement);
 
             this.direction = this.stateMachine[movement][this.direction][0];
             this.x = this.x + this.stateMachine[movement][this.direction][1];
             this.y = this.y + this.stateMachine[movement][this.direction][2];
 
-            this.limit();
-
-            console.log("Current position", this.x, this.y, "Direction", this.direction);
-            console.log();
+            this.checkBoundaries();
+            // console.log("Current position", this.x, this.y, "Direction", this.direction);
+            // console.log();
         });
 
     }
