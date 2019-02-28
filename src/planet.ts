@@ -21,6 +21,3 @@ export class Planet {
         return this.obstacles;
     }
 }
-
-// let p = new Planet(10, [[0,1], [2,3]]);
-// p.printObstacles();

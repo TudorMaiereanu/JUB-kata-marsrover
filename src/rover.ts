@@ -77,7 +77,6 @@ export class Rover {
     move(instructions: string) {
         const listInstructions = instructions.split("");
         listInstructions.forEach(movement => {
-            // console.log("Current position", this.x, this.y, "Direction", this.direction, "-> Move", movement);
 
             this.direction = this.stateMachine[movement][this.direction][0];
             this.x = this.x + this.stateMachine[movement][this.direction][1];
@@ -85,12 +84,7 @@ export class Rover {
 
             this.checkBoundaries();
             this.checkObstacles(this.x, this.y);
-            // console.log("Current position", this.x, this.y, "Direction", this.direction);
-            // console.log();
         });
 
     }
 }
-
-// let rover = new Rover(0, 0, "N");
-// rover.move("FFFFBBBBLRFFRRLB");
