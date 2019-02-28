@@ -20,10 +20,10 @@ describe("Rover test:", () => {
 
     describe("Move test:", () => {
         let rover;
-        beforeEach(() => {
-            rover = new Rover(0, 0, "N", 10, []);
-        });
         describe("Direction change:", () => {
+            beforeEach(() => {
+                rover = new Rover(0, 0, "N", 10, []);
+            });
             describe("Sideways turn", () => {
                 it("Changes direction by turning left", () => {
                     rover.move("L");
@@ -70,7 +70,12 @@ describe("Rover test:", () => {
                     expect(rover.getDirection()).toEqual("W");
                 });
             });
+        });
 
+        describe("Boundary check: ", () => {
+            beforeEach(() => {
+                rover = new Rover(0, 0, "N", 2, []);
+            });
             describe("Rover going out of boundaries", () => {
                 it("x goes out of boundaries (lower limit)", () => {
                     expect(() => {
@@ -80,9 +85,29 @@ describe("Rover test:", () => {
                 });
                 it("y goes out of boundaries (upper limit)", () => {
                     expect(() => {
-                        rover.move("FFFFFFFFFFF");
+                        rover.move("FFF");
                     }).toThrow(Error("y out of boundaries"));
-                    expect(rover.getCoordinates()[1]).toEqual(10);
+                    expect(rover.getCoordinates()[1]).toEqual(2);
+                });
+            });
+        });
+
+        describe("Obstacles check: ", () => {
+            beforeEach(() => {
+                rover = new Rover(0, 0, "N", 10, [[0, 1], [2, 3]]);
+            });
+            describe("Stops at obstacles: ", () => {
+                it("Throws error when detecting obstacle at [0, 1]", () => {
+                    expect(() => {
+                        rover.move("FFF");
+                    }).toThrow(Error("Obstacle detected"));
+                    expect(rover.getCoordinates()).toEqual([0, 1]);
+                });
+                it("Throws error when detecting obstacle at [2, 3]", () => {
+                    expect(() => {
+                        rover.move("RFLFFFRF");
+                    }).toThrow(Error("Obstacle detected"));
+                    expect(rover.getCoordinates()).toEqual([2, 3]);
                 });
             });
         });

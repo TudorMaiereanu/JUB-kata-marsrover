@@ -65,6 +65,15 @@ export class Rover {
         }
     }
 
+    checkObstacles(x, y) {
+        let obs = this.p.getObstacles();
+        obs.forEach(pair => {
+            if (pair[0] === x && pair[1] === y) {
+                throw Error("Obstacle detected");
+            }
+        });
+    }
+
     move(instructions: string) {
         const listInstructions = instructions.split("");
         listInstructions.forEach(movement => {
@@ -75,6 +84,7 @@ export class Rover {
             this.y = this.y + this.stateMachine[movement][this.direction][2];
 
             this.checkBoundaries();
+            this.checkObstacles(this.x, this.y);
             // console.log("Current position", this.x, this.y, "Direction", this.direction);
             // console.log();
         });
