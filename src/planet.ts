@@ -12,6 +12,14 @@ export class Planet {
             console.log(pair);
         });
     }
+
+    getSize() {
+        return this.size;
+    }
+
+    getObstacles() {
+        return this.obstacles;
+    }
 }
 
 // let p = new Planet(10, [[0,1], [2,3]]);

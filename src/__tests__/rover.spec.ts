@@ -1,8 +1,8 @@
 import { Rover } from "../rover";
 import { Planet } from "../planet";
 
-describe("Rover", () => {
-    describe("Constructor", () => {
+describe("Rover test:", () => {
+    describe("Constructor: ", () => {
         let rover = new Rover(0, 0, "N", 10, []);
 
         it("Should create the rover instance", () => {
