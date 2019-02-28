@@ -1,5 +1,4 @@
 import { Rover } from "../rover";
-import { Planet } from "../planet";
 
 describe("Rover test:", () => {
     describe("Constructor: ", () => {
