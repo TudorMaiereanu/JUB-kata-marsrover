@@ -19,22 +19,12 @@ rover spin 90 degrees left or right respectively, without moving
 from its current spot. 'F' and 'B' means move forward and backwards one grid point, and 
 maintain the same direction.
 
+
 ## Goal
 Practice Classicist TDD (state verification, no mocks) and familiarize with common code smells, refactoring steps, design patterns and principles.
 
-## Tools
-
-This is a [gulp](http://gulpjs.com/) project using [typescript](https://www.typescriptlang.org/) 
-and [jasmine](http://jasmine.github.io/) as test framework.
-
-## Versions
-
-* ```Gulp```: 3.9.1
-* ```typings```: 1.3.3
-* ```node```: 4.4.2
-
 ## Description
-Develop an api that moves a rover around on a grid.
+Develop an api that moves a rover (rover.ts) around on a grid (planet.ts).
 
 * You are given the initial starting point (x, y) of a rover and the direction (North, South, East, West) it is facing.
 * The rover receives a list of commands.
@@ -49,6 +39,17 @@ Sample api:
 Rover rover = new Rover(0, 0, 'N', 10, [[0,1], [4,5]]);
 rover.move("FFBLFR")
 ```
+
+## Tools
+
+This is a [gulp](http://gulpjs.com/) project using [typescript](https://www.typescriptlang.org/) 
+and [jasmine](http://jasmine.github.io/) as test framework.
+
+## Versions
+
+* ```Gulp```: 3.9.1
+* ```typings```: 1.3.3
+* ```node```: 4.4.2
 
 ## Implementation
 Recommended approach to solve this kata is by using TDD.

@@ -42,3 +42,11 @@ git clone REPOURL
 cd REPO
 npm install
 ```
+
+### Run tests
+
+As the kata is test oriented, you should make sure that the jasmine test configuration is set properly. You can check that by running all the test files (*.spec.ts):
+
+```
+npm run test
+```
