@@ -76,8 +76,8 @@ export class Rover {
 
     move(instructions: string) {
         const listInstructions = instructions.split("");
-        listInstructions.forEach(movement => {
 
+        listInstructions.forEach(movement => {
             this.direction = this.stateMachine[movement][this.direction][0];
             this.x = this.x + this.stateMachine[movement][this.direction][1];
             this.y = this.y + this.stateMachine[movement][this.direction][2];
