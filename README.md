@@ -1,6 +1,6 @@
 # JUB-kata-marsrover (Typescript)
 
-## Problem
+## Story
 
 A squad of robotic rovers are to be landed by NASA on a plateau on Mars. 
 This plateau, which is curiously rectangular, must be navigated by the 
@@ -23,7 +23,7 @@ maintain the same direction.
 ## Goal
 Practice Classicist TDD (state verification, no mocks) and familiarize with common code smells, refactoring steps, design patterns and principles.
 
-## Description
+## Technical description
 Develop an api that moves a rover (rover.ts) around on a grid (planet.ts).
 
 * You are given the initial starting point (x, y) of a rover and the direction (North, South, East, West) it is facing.
@@ -52,6 +52,9 @@ and [jasmine](http://jasmine.github.io/) as test framework.
 * ```node```: 4.4.2
 
 ## Implementation
+
+It is best to follow the instructions mentioned in ```INSTRUCTIONS.md```.
+
 Recommended approach to solve this kata is by using TDD.
 
 Useful resource: https://sourcemaking.com
