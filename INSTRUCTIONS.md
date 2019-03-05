@@ -2,6 +2,8 @@
 
 In order to set up your environment so that you are able to run the code along with the tests, it's best to execute the following commands.
 
+*Note:* when asked to update or upgrade any of the systems (brew, node, npm), please agree and do update/upgrade them.
+
 ## Install node & npm
 
 Linux
