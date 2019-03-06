@@ -71,6 +71,12 @@ describe("Rover test:", () => {
                     expect(rover.getCoordinates()).toEqual([7, 4]);
                     expect(rover.getDirection()).toEqual("W");
                 });
+
+                it("does not execute wrong command", () => {
+                    expect(() => {
+                        rover.move("O");
+                    }).toThrowError();
+                });
             });
         });
 
