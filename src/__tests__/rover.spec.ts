@@ -15,6 +15,12 @@ describe("Rover test:", () => {
         it("Should create a rover with the given initial direction", () => {
             expect(rover.getDirection()).toEqual("N");
         });
+
+        it("Should not initialize rover if coordinates are out of bounds", () => {
+            expect(() => {
+                rover = new Rover(11, 10, "N", 10, []);
+            }).toThrow(Error("coordinates out of bounds"));
+        });
     });
 
     describe("Move test:", () => {

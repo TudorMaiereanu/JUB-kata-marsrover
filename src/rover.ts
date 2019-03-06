@@ -34,6 +34,9 @@ export class Rover {
     p: Planet;
 
     constructor(x: number, y: number, direction: string, s: number, obs: [number, number] []) {
+        if (x > s || y > s) {
+            throw Error("coordinates out of bounds");
+        }
         this.x = x;
         this.y = y;
         this.direction = direction;
