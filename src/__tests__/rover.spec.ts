@@ -2,7 +2,11 @@ import { Rover } from "../rover";
 
 describe("Rover test:", () => {
     describe("Constructor: ", () => {
-        let rover = new Rover(0, 0, "N", 10, []);
+        let rover;
+
+        beforeEach(() => {
+            rover = new Rover(0, 0, "N", 10, []);
+        });
 
         it("Should create the rover instance", () => {
             expect(rover).toBeDefined();
@@ -17,9 +21,11 @@ describe("Rover test:", () => {
         });
 
         it("Should not initialize rover if coordinates are out of bounds", () => {
+            let roverInstance;
             expect(() => {
-                rover = new Rover(11, 10, "N", 10, []);
+                roverInstance = new Rover(11, 10, "N", 10, []);
             }).toThrow(Error("coordinates out of bounds"));
+            expect(roverInstance).toBeUndefined();
         });
     });
 
